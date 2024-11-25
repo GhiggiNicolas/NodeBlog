@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "6744281efccdff93e3ad533e"
+  },
+  "image": "post_1732519966041-802758270.jpg",
+  "description": "Primo post di questa macchina.",
+  "user_id": {
+    "$oid": "673b3796cc94c16d9ec69f18"
+  },
+  "createdAt": {
+    "$date": "2024-11-25T07:32:46.053Z"
+  },
+  "updatedAt": {
+    "$date": "2024-11-25T07:32:46.053Z"
+  },
+  "__v": 0
+}]

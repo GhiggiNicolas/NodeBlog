@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --radius: 1rem;
+
+    --color-primary: 258, 90%, 66%;
+    --color-destroy: 0, 84%, 60%;
+
+    --bg-body: 0, 0%, 100%;
+    --bg-card: 0, 0%, 98%;
+    --bg-checkbox: 0, 0%, 96%;
+
+    --text-color: 215, 28%, 17%;
+
+    --border-color-card: 240, 1%, 91%;
+    --border-color-checkbox: 0, 0%, 74%;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--bg-body));
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #6a737b;
+    border: 3px solid hsl(var(--bg-body));
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #41464b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    user-select: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background .3s ease;
+    font-family: 'Nunito', sans-serif;
+}
+
+img {
+    overflow: hidden;
+    object-fit: cover;
+    border-style: none;
+    object-position: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html.dark {
+    --text-color: 220, 13%, 91%;
+    --bg-body: 240, 18%, 4%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: hsl(var(--text-color));
+    background: hsl(var(--bg-body));
+}
+
+.link {
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: hsl(var(--color-primary));
+}
+
+.rounded-big {
+    border-radius: calc(var(--radius) * 2);
+}
+
+.rounded-normal {
+    border-radius: var(--radius);
+}
+
+.card {
+    max-width: 100%;
+    /*max-width: 32rem;*/
+    overflow: hidden;
+    position: relative;
+    padding: 2rem 1.5rem;
+    color: var(--text-color);
+    border-radius: var(--radius);
+    background: hsl(var(--bg-card));
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid hsl(var(--border-color-card));
+}
+
+.card-content {
+    margin: 0 auto;
+    max-width: 28rem;
+}
+
+html.dark .card, .card.dark {
+    --bg-card: 240, 5.9%, 10%;
+    --border-color-card: 240, 7%, 16%;
+}
+
+.btn {
+    cursor: pointer;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    color: hsl(var(--text-btn));
+    border-radius: var(--radius);
+    background: hsl(var(--bg-btn));
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: hsl(var(--bg-btn-hover));
+}
+
+.btn.btn-outline {
+    background: transparent;
+    color: hsl(var(--bg-btn));
+    border: 3px solid hsl(var(--bg-btn));
+}
+
+.btn.btn-outline:hover {
+    color: hsl(var(--text-btn));
+    background: hsl(var(--bg-btn));
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 3px hsla(var(--bg-btn-hover), 0.5);
+}
+
+.btn.icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    padding: 0.75rem;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.btn i {
+    font-size: 20px;
+}
+
+.btn-primary {
+    --text-btn: 0, 0%, 100%;
+    --bg-btn: var(--color-primary);
+    --bg-btn-hover: 262, 83%, 58%;
+    --shadow-btn-focus: var(--bg-btn);
+}
+
+.btn-neutral {
+    --text-btn: 0, 0%, 100%;
+    --bg-btn: 0, 0%, 20%;
+    --bg-btn-hover: 0, 0%, 10%;
+    --shadow-btn-focus: var(--bg-btn);
+}
+
+html.dark .btn-neutral {
+    --text-btn: 0, 0%, 20%;
+    --bg-btn: 0, 0%, 100%;
+    --bg-btn-hover: 0, 0%, 90%;
+    --shadow-btn-focus: var(--bg-btn);
+}
+
+.btn-destroy {
+    --text-btn: 0, 0%, 100%;
+    --bg-btn: 0, 74%, 58%;
+    --bg-btn-hover: 0, 83%, 49%;
+    --shadow-btn-focus: var(--bg-btn);
+}
+
+.input-outline {
+    /*width: 100%;*/
+    color: #374151;
+    /*appearance: none;*/
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border-radius: var(--radius);
+    border: 3px solid hsl(var(--color-primary));
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.input-outline:focus {
+    box-shadow: 0 0 0 3px hsla(var(--color-primary), 0.5);
+}
+
+html.dark .input-outline {
+    color: #f3f4f6;
+}
+
+html.dark .input-outline:focus {
+    color: #f3f4f6;
+}
+
+.input-outline.error {
+    border-color: hsl(var(--color-destroy));
+}
+
+.input-outline.error:focus {
+    box-shadow: 0 0 0 3px hsla(var(--color-destroy), 0.5);
+}
+
+.input-outline::placeholder {
+    color: #a1a1aa;
+}
+
+select.input-outline {
+    cursor: pointer;
+}
+
+.input-outline option {
+    color: #1f2937;
+    padding: 0.25rem .75rem;
+}
+
+.input-outline option:checked {
+    color: #fff;
+    background: hsl(var(--color-primary));
+}
+
+.input-checkbox {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: calc(var(--radius) / 4);
+    background: hsl(var(--bg-checkbox));
+    border: 1px solid hsl(var(--border-color-checkbox));
+}
+
+.input-checkbox:checked {
+    background-color: hsl(var(--color-primary));
+    border-color: hsl(var(--color-primary));
+}
+
+.input-checkbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsla(var(--color-primary), 0.5);
+}
+
+.input-checkbox + i {
+    left: 0.2rem;
+    display: none;
+    color: white;
+    font-size: 0.7rem;
+    position: absolute;
+    pointer-events: none;
+}
+
+.input-checkbox:checked + i {
+    display: block;
+}
+
+html.dark .input-checkbox, .input-checkbox.dark {
+    --bg-checkbox: 210, 10%, 25%;
+    --border-color-checkbox: 210, 10%, 40%;
+}
+
+html.dark .input-checkbox:checked, .input-checkbox:checked.dark {
+    background-color: hsl(var(--color-primary));
+    border-color: hsl(var(--color-primary));
+}
+
+.btn-ghost {
+    background: transparent;
+    border-radius: var(--radius);
+    border: 2px solid hsl(var(--bg-btn));
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-ghost:hover {
+    background: hsla(0, 0%, 70%, 0.2);
+}
+

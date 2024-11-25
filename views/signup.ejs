@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        <title>NodeBlog - Signup</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/public/css/output.css" rel="stylesheet">
+        <link href="/public/css/app.css" rel="stylesheet">
+        <link href="/assets/tailwindcss/tailwind.min.css" rel="stylesheet">
+        <link href="/assets/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <base href="/public/image/">
+    </head>
+    <body class="flex items-center justify-center bg-mountain">
+        <div class="card bg-card-blur w-[450px] mx-auto mt-6">
+            <div class="card-content">
+                <h1 class="relative text-2xl font-extrabold flex items-center justify-center mb-2 h-10 tracking-wider">
+                    Welcome new friend
+                </h1>
+                <% if (message) { %>
+                    <span class="text-red-500 font-bold"><%= message %></span>
+                <% } %>
+                <form action="/signup" method="post">
+                    <div class="my-8">
+                        <label for="username" class="my-3">Username</label>
+                        <input type="text" name="username" id="username" class="input-outline w-full" placeholder="Enter your username">
+                    </div>
+                    <div class="my-8">
+                        <label for="email" class="my-3">Email</label>
+                        <input type="email" name="email" id="email" class="input-outline w-full" placeholder="Enter your email">
+                    </div>
+                    <div class="my-8">
+                        <label for="password" class="my-3">Password</label>
+                        <input type="password" name="password" id="password" class="input-outline w-full" placeholder="Enter your password">
+                    </div>
+                    <div class="my-8">
+                        <label for="confirm_password" class="my-3">Confirm password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="input-outline w-full" placeholder="Confirm your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full mt-2">Sign Up</button>
+                </form>
+                <p class="text-center mt-8">
+                    Do you have an account? <a href="/login" class="link">Login</a>
+                </p>
+            </div>
+        </div>
+    </body>     
+</html>

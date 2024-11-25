@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>NodeBlog - <%= title %></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/public/css/output.css" rel="stylesheet">
+        <link href="/public/css/app.css" rel="stylesheet">
+        <link href="/assets/tailwindcss/tailwind.min.css" rel="stylesheet">
+        <link href="/assets/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <%- include('partials/sidebar') %>
+        <main class="main">
+            <%- include('partials/header') %>
+
+            <section class="card max-w-full w-[680px] sm:mx-auto my-10">
+                <h1 class="text-2xl font-bold mb-4 text-center">Create a new Post</h1>
+                <form action="/post/store" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
+                    <div class="form-group">
+                        <label for="post_image" class="block text-sm font-medium">Upload Image</label>
+                        <% if (errors.image) { %>
+                            <div class="text-red-500 text-sm mt-2"><%= errors.image %></div>
+                        <% } %>
+                        <label class="picture w-full input-outline <%= errors.image ? 'error' : '' %>" for="post_image" tabIndex="0">
+                            <span class="post_image text-black">Choose an image</span>
+                        </label>
+                        <input type="file" name="image" id="post_image">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="block text-sm font-medium">Description</label>
+                        <% if (errors.description) { %>
+                            <div class="text-red-500 text-sm mt-2"><%= errors.description %></div>
+                        <% } %>
+                        <textarea id="description" name="description" rows="4" class="input-outline w-full <%= errors.description ? 'error' : '' %>"
+                                  maxlength="300" oninput="updateCharacterCount()"><%= description || '' %></textarea>
+                        <div class="text-sm text-right mt-1">
+                            <span id="charCount">0</span>/300
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            Publish
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </body>
+    <script src="/public/js/post_form.js"></script>
+</html>

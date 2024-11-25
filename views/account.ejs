@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>NodeBlog - <%= title %></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/public/css/output.css" rel="stylesheet">
+        <link href="/public/css/app.css" rel="stylesheet">
+        <link href="/assets/tailwindcss/tailwind.min.css" rel="stylesheet">
+        <link href="/assets/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+    <%- include('partials/sidebar') %>
+        <main class="main">
+            <%- include('partials/header') %>
+
+            <div class="banner">
+                <img src="/public/image/account/<%= user.image || 'default-avatar.png' %>" alt="User's image" class="account-image">
+                <div class="user-info">
+                    <h1 class="text-2xl"><%= user.username %></h1>
+                    <hr>
+                    <h2 class="text-lg"><%= user.email %></h2>
+                </div>
+            </div>
+
+            <form action="/user/update/username" method="post" class="card flex flex-col gap-5 w-[calc(680px - 40px)] sm:w-[680px] mx-5 sm:mx-auto my-5">
+                <h1 class="text-2xl font-bold mb-4 text-center">Change Username</h1>
+                <div class="form-group">
+                    <label for="username" class="block text-sm font-medium">Username</label>
+                    <input type="text" name="username" id="username" class="input-outline w-full"
+                           value="<%= user.username %>" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Update Username
+                    </button>
+                </div>
+            </form>
+
+            <form action="/user/update/password" method="post" class="card flex flex-col gap-5 w-[calc(680px - 40px)] sm:w-[680px] mx-5 sm:mx-auto my-5">
+                <h1 class="text-2xl font-bold mb-4 text-center">Change Password</h1>
+                <div class="form-group">
+                    <label for="old_password" class="block text-sm font-medium">Old Password</label>
+                    <input type="password" name="old_password" id="old_password" class="input-outline w-full" required>
+                </div>
+                <div class="form-group">
+                    <label for="new_password" class="block text-sm font-medium">New Password</label>
+                    <input type="password" name="new_password" id="new_password" class="input-outline w-full" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password" class="block text-sm font-medium">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="input-outline w-full" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Update Password
+                    </button>
+                </div>
+            </form>
+
+            <form action="/user/update/image" method="post" enctype="multipart/form-data" class="card flex flex-col gap-5 w-[calc(680px - 40px)] sm:w-[680px] mx-5 sm:mx-auto my-5">
+                <h1 class="text-2xl font-bold mb-4 text-center">Change Image</h1>
+                <div class="form-group mx-auto">
+                    <label class="picture w-full input-outline" for="post_image" tabIndex="0" style="border-radius: 50%; width: 200px; height: 200px">
+                        <span class="post_image text-black">Choose an image</span>
+                    </label>
+                    <input type="file" name="image" id="post_image">
+                </div>
+
+                <div class="form-group mx-auto">
+                    <button type="submit" class="btn btn-primary">
+                        Update Image
+                    </button>
+                </div>
+            </form>
+
+            <form action="/user/delete" method="post">
+                <input type="hidden" name="delete_password" id="delete_password">
+                <button type="submit" class="btn btn-primary bg-red-500 hover:bg-red-700"
+                onclick="return confirmDeletion()">Delete Account</button>
+            </form>
+        </main>
+    </body>
+    <script>
+        const confirmDeletion = () => {
+            const password = prompt("Please enter your password to confirm:");
+                
+            if (password) {
+                document.getElementById('delete_password').value = password;
+                return true;
+            }
+            
+            alert("Deletion cancelled.");
+            return false;
+        }
+    </script>
+    <script src="/public/js/post_form.js"></script>
+</html>

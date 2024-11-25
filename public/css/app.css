@@ -1,0 +1,385 @@
+:root {
+    --bg-sidebar: 0, 0%, 98%;
+    --bg-header: 0, 0%, 98%;
+    --border-color-sidebar: 240, 1%, 91%;
+    --border-color-header: 240, 1%, 91%;
+
+    --bg-badge: #000;
+    --text-badge: #fff;
+}
+
+html.dark {
+    --bg-sidebar: 240, 5.9%, 10%;
+    --bg-header: 240, 5.9%, 10%;
+    --border-color-sidebar: 240, 7%, 16%;
+    --border-color-header: 240, 7%, 16%;
+
+    --bg-badge: #fff;
+    --text-badge: #000;
+}
+
+img {
+    object-fit: cover;
+    object-position: center;
+}
+
+body.bg-mountain {
+    background: url('../image/mountains_sunset_wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.badge {
+    width: auto;
+    font-size: 12px;
+    padding: 4px 8px;
+    font-weight: bold;
+    color: var(--text-badge);
+    border-radius: var(--radius);
+    background-color: var(--bg-badge);
+}
+
+.card.bg-card-blur {
+    color: hsl(220, 13%, 91%);
+    backdrop-filter: blur(0.75rem);
+    background: hsla(var(--bg-card), 0.5);
+}
+
+.sidebar {
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background: hsl(var(--bg-sidebar));
+    border-right: 2px solid hsl(var(--border-color-sidebar));
+    transition: width 0.3s ease;
+}
+
+.sidebar .sidebar-section {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sidebar .badge {
+    top: 50%;
+    display: none;
+    position: absolute;
+    left: calc(100% + 5px);
+    transform: translate(0, -50%);
+}
+
+.sidebar .btn:hover .badge {
+    display: block;
+}
+
+.sidebar .logo {
+    width: 40px;
+    height: 50px;
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    padding-bottom: 10px;
+    justify-content: center;
+    border-bottom: 2px solid hsl(var(--border-color-sidebar));
+}
+
+.main {
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    width: calc(100% - 60px);
+}
+
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    position: sticky;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(0.75rem);
+    background: hsl(var(--bg-header), 0.7);
+    border-bottom: 2px solid hsl(var(--border-color-header));
+}
+
+.header .header-section {
+    height: 100%;
+}
+
+.header .account-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.fa-solid.fa-heart {
+    color: #dc2626;
+}
+
+.card.post {
+    padding: 0;
+    max-width: 100%;
+}
+
+.card.post .account-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.card.post .post-header {
+    gap: 8px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid hsl(var(--border-color-card));
+}
+
+.card.post .post-footer {
+    padding: 10px;
+    border-top: 2px solid hsl(var(--border-color-card));
+}
+
+.card.post .post-footer .command-section {
+    padding-bottom: 5px;
+    border-bottom: 2px solid hsl(var(--border-color-card));
+}
+
+#post_image {
+    display: none;
+}
+
+.picture {
+    width: 100%;
+    height: 400px;
+    padding: 0;
+    color: #aaa;
+    display: flex;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    background: #ddd;
+    align-items: center;
+    font-family: sans-serif;
+    justify-content: center;
+    border: 2px dashed hsl(var(--color-primary));
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+}
+
+.picture:hover {
+    color: #777;
+    background: #ccc;
+}
+
+.picture:active {
+    background: #eee;
+    color: hsl(var(--color-primary));
+    border-color: hsl(var(--color-primary));
+}
+
+.picture:focus {
+    color: #777;
+    background: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.post_image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    object-fit: contain;
+    align-items: center;
+    justify-content: center;
+    object-position: center;
+}
+
+
+.banner {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: url('/public/image/purple_wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+}
+
+.banner::after {
+    content: '';
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(transparent, hsl(var(--bg-body)));
+}
+
+.banner * {
+    z-index: 2;
+}
+
+.banner .account-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 20px;
+}
+
+.banner .user-info {
+    gap: 5px;
+    color: #fff;
+    display: flex;
+    margin-right: 20px;
+    flex-direction: column;
+}
+
+.banner hr {
+    width: 200px;
+    max-width: 100%;
+    border: 1px solid hsla(var(--border-color-card), .5);
+}
+
+.footer {
+    z-index: 1;
+    width: 100%;
+    --footer-background: hsl(var(--color-primary));
+    display: grid;
+    position: relative;
+    grid-area: footer;
+    min-height: 12rem;
+    margin-top: 15rem;
+}
+
+.footer .bubbles {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    position: absolute;
+    background: var(--footer-background);
+    filter: url("#blob");
+}
+
+.footer .bubbles .bubble {
+    position: absolute;
+    left: var(--position, 50%);
+    background: var(--footer-background);
+    border-radius: 100%;
+    animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+        bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    transform: translate(-50%, 100%);
+}
+
+.footer .content {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--footer-background);
+}
+
+.footer .content hr {
+    width: 70%;
+    border: 1px solid hsla(var(--border-color-card), .5);
+}
+
+.footer .content .footer-nav {
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .content .footer-nav span {
+    display: none;
+}
+
+.footer .content .copyright {
+    width: 100%;
+    padding: 10px;
+    line-height: 1.25rem;
+    font-size: 0.875rem;
+    text-align: center;
+    color: #fffc;
+}
+
+.footer .content .copyright span {
+    font-weight: bold;
+    color: #fff;
+}
+
+@keyframes bubble-size {
+    0%, 75% {
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+    }
+    100% {
+        width: 0rem;
+        height: 0rem;
+    }
+}
+
+@keyframes bubble-move {
+    0% {
+        bottom: -4rem;
+    }
+    100% {
+        bottom: var(--distance, 10rem);
+    }
+}
+
+@media (min-width: 1280px) { 
+    .footer .content .copyright {
+        width: 60%;
+    }
+}
+
+@media (min-width: 768px) { 
+    .footer .content .copyright {
+        width: 80%;
+    }
+}
+
+@media (min-width: 640px) {
+    .banner .account-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 20px;
+    }
+
+    .banner hr {
+        width: 250px;
+        max-width: 100%;
+        border: 1px solid hsla(var(--border-color-card), .5);
+    }
+
+    .footer .content .footer-nav span {
+        display: inline;
+    }
+
+    .footer .content .copyright {
+        width: 50%;
+    }
+}

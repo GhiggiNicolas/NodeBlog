@@ -1,0 +1,50 @@
+<div class="footer">
+    <div class="bubbles"></div>
+    <div class="content">
+
+        <ul class="footer-nav">
+            <li>
+                <a href="/" class="btn btn-ghost">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="/post/create" class="btn btn-ghost">
+                    <i class="fa-solid fa-folder-plus"></i>
+                    <span>Create post</span>
+                </a>
+            </li>
+            <li>
+                <a href="/user" class="btn btn-ghost">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="/logout" class="btn btn-ghost">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+        <hr>
+        <div class="copyright">
+            <span>Copyright <i class="fa-regular fa-copyright"></i> 2024 Nicolas Ghiggi I4AC. </span>
+            All rights reserved. No part of this site may be reproduced or used without the written permission of the company. The trademarks and logos present are the property of their respective owners.
+        </div>
+
+    </div>
+</div>
+
+<svg style="position:fixed; top:100vh">
+    <defs>
+        <filter id="blob">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                result="blob" />
+        </filter>
+    </defs>
+</svg>
+
+<script src="/public/js/bubbles.js"></script>
