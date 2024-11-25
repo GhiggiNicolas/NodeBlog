@@ -173,6 +173,13 @@ html.dark .card, .card.dark {
     --shadow-btn-focus: var(--bg-btn);
 }
 
+.btn-destroy {
+    --text-btn: 0, 0%, 100%;
+    --bg-btn: 0, 84.2%, 60.2%;
+    --bg-btn-hover: 0, 73.7%, 41.8%;
+    --shadow-btn-focus: var(--bg-btn);
+}
+
 html.dark .btn-neutral {
     --text-btn: 0, 0%, 20%;
     --bg-btn: 0, 0%, 100%;

@@ -74,9 +74,9 @@
                 </div>
             </form>
 
-            <form action="/user/delete" method="post">
+            <form action="/user/delete" method="post" class="mx-auto my-10 flex items-center justify-center">
                 <input type="hidden" name="delete_password" id="delete_password">
-                <button type="submit" class="btn btn-primary bg-red-500 hover:bg-red-700"
+                <button type="submit" class="btn btn-destroy"
                 onclick="return confirmDeletion()">Delete Account</button>
             </form>
         </main>
